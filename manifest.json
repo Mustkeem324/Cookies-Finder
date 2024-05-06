@@ -1,0 +1,31 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name": "Cookies Finder",
+  "description": "Cookies Finder app offers a developer-friendly environment with well-documented APIs, modular code architecture, and robust SDK support. It simplifies the process of integrating new features, updating existing ones, and maintaining the app, allowing developers to focus on enhancing the user experience and expanding functionality.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "cookies"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "logo.png"
+  },
+  "icons":{
+    "128": "logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "*://*/*" ],
+      "js": [ "inject.js" ]
+    }
+  ]
+}
